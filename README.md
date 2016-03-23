@@ -48,7 +48,10 @@ authentication.
 * SNMP Information: This script dumps the contents of the
 `public` and `private` SNMP v2c communities to disk using no credentials.
 * Vulnerability Check: This script tests for the presence
-of 74 vulnerabilities using exploits from Metasploit and other sources.
+of 60 known vulnerabilities using exploits from Metasploit. In addition, it
+also checks for 14 previously-unknown vulnerbailities that we discovered.
+For more information, including affected products and CVE's, refer to
+[analyses/README.md](https://github.com/firmadyne/firmadyne/blob/master/analyses/README.md).
 
 In our 2016 [Network and Distributed System Security Symposium (NDSS)](http://www.internetsociety.org/events/ndss-symposium)
 paper, titled [Towards Automated Dynamic Analysis for Linux-based Embedded Firmware](https://github.com/firmadyne/firmadyne/blob/master/paper/paper.pdf), we evaluated the FIRMADYNE
@@ -112,7 +115,10 @@ Alternatively, refer to the instructions [below](#compiling-from-source) to comp
 
 To use [QEMU](http://wiki.qemu.org/Main_Page) provided by your distribution:
 
-* `sudo apt-get install qemu-system-arm qemu-system-mips qemu-utils`
+* `sudo apt-get install qemu-system-arm qemu-system-mips qemu-system-x86 qemu-utils`
+
+Note that emulation of x86-based firmware is not currently supported, but installing
+`qemu-system-x86` resolves a packaging issue on certain Debian-based distributions.
 
 Alternatively, use our [modified version](https://github.com/firmadyne/qemu-linaro)
 of [qemu-linaro](https://git.linaro.org/?p=qemu/qemu-linaro.git) for certain
